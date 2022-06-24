@@ -17,6 +17,9 @@
 .create-post-container .user-info img {
 	width: 3rem;
 	height: 3rem;
+	cursor: pointer;
+	object-fit: cover;
+	object-position: center;
 }
 
 .create-post-container .user-info .user-name {

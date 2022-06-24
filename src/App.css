@@ -77,3 +77,20 @@ body {
 	border: 0.25em dashed transparent;
 	border-top: 0.25em solid #00a896;
 }
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #eaf4f4;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background: #2ec4b6;
+}

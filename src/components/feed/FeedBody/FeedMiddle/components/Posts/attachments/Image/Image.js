@@ -1,14 +1,10 @@
 import "./Image.css";
 
-const Image = () => {
+const Image = ({ post }) => {
 	return (
 		<>
 			<div className="img-container">
-				<img
-					src="/assets/posts/story-1.png"
-					alt="story"
-					className="img-fluid for-image"
-				/>
+				<img src={post} alt="story" className="img-fluid for-image" />
 			</div>
 		</>
 	);

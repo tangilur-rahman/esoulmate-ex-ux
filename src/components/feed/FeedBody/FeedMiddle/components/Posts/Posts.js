@@ -12,22 +12,40 @@ import Description from "./Description/Description";
 const Posts = () => {
 	return (
 		<>
-			{/* post section start  */}
-			<div className="post-container">
-				<Header />
-				<Description />
+			{/* rendering section start */}
 
-				{/* attachment section start  */}
-				<div className="attachment-container">
-					<Image />
-					{/* <Video/> */}
-					{/* <Audio/> */}
-					{/* <Pdf/> */}
-				</div>
-				{/* attachment section end  */}
+			{posts &&
+				posts.map((value) => {
+					const { profile, name, time, privacy, description, post, type } =
+						value;
+					return (
+						<>
+							{/* post section start  */}
+							<div className="post-container">
+								<Header
+									profile={profile}
+									name={name}
+									time={time}
+									privacy={privacy}
+								/>
 
-			</div>
-			{/* post section end  */}
+								<Description description={description} />
+
+								{/* attachment section start  */}
+								<div className="attachment-container">
+									{(type === "image" && <Image post={post} />) ||
+										(type === "video" && <Video post={post} />) ||
+										(type === "audio" && <Audio post={post} />) ||
+										(type === "document" && <Pdf post={post} />)}
+								</div>
+								{/* attachment section end  */}
+							</div>
+							{/* post section end  */}
+						</>
+					);
+				})}
+
+			{/* rendering section start */}
 		</>
 	);
 };

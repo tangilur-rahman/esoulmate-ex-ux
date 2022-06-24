@@ -1,7 +1,7 @@
 import "./Audio.css";
 import React, { useState, useRef, useEffect } from "react";
 
-const Audio = () => {
+const Audio = ({ post }) => {
 	// // state
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [duration, setDuration] = useState(0);
@@ -82,11 +82,7 @@ const Audio = () => {
 				<div className="audioPlayer">
 					<div className="controller-container">
 						{/* audio tag  */}
-						<audio
-							ref={audioPlayer}
-							src="/assets/posts/audio.mp3"
-							preload="metadata"
-						></audio>
+						<audio ref={audioPlayer} src={post} preload="metadata"></audio>
 
 						{/* backward button  */}
 						<button

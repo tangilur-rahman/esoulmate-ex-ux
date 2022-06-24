@@ -12,11 +12,11 @@ const Audio = ({ post }) => {
 	const progressBar = useRef(); // reference our progress bar
 	const animationRef = useRef(); // reference the animation
 
-	const onLoadedMetadata = ()=>{
+	const onLoadedMetadata = () => {
 		const seconds = Math.floor(audioPlayer.current.duration);
 		setDuration(seconds);
 		progressBar.current.max = seconds;
-	}
+	};
 
 	const calculateTime = (secs) => {
 		const minutes = Math.floor(secs / 60);
@@ -50,7 +50,7 @@ const Audio = ({ post }) => {
 	};
 
 	const changePlayerCurrentTime = () => {
-	   progressBar.current.style.setProperty(
+		progressBar.current.style.setProperty(
 			"--seek-before-width",
 			`${(progressBar.current.value / duration) * 100}%`
 		);
@@ -82,7 +82,12 @@ const Audio = ({ post }) => {
 				<div className="audioPlayer">
 					<div className="controller-container">
 						{/* audio tag  */}
-						<audio ref={audioPlayer} src={post} preload="metadata" onLoadedMetadata={onLoadedMetadata}></audio>
+						<audio
+							ref={audioPlayer}
+							src={post}
+							preload="metadata"
+							onLoadedMetadata={onLoadedMetadata}
+						></audio>
 
 						{/* backward button  */}
 						<button

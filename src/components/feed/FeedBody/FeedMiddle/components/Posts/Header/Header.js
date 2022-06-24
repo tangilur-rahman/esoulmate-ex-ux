@@ -30,7 +30,7 @@ const Header = ({ profile, name, time, privacy }) => {
 				</div>
 
 				<div className="right">
-					<i class="bi bi-three-dots"></i>
+					<i className="bi bi-three-dots"></i>
 				</div>
 			</div>
 			{/* header-section end  */}

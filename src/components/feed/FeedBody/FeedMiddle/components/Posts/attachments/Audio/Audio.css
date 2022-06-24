@@ -81,11 +81,6 @@
 	color: white;
 }
 
-/* .play {
-	position: relative;
-	left: 5px;
-} */
-
 .playPause .play-btn {
 	margin: 0 0px 0 7px;
 }
@@ -96,11 +91,12 @@
 	font-size: 13px;
 }
 
+/* progress-bar start  */
 .progressBar {
-	--bar-bg: #ffafcc;
+	--bar-bg: #fae1dd;
 	--seek-before-width: 0;
-	--seek-before-color: #ffc2a1;
-	--knobby: #3452a5;
+	--seek-before-color: #ff006e;
+	--knobby: #ff006e;
 	--selectedKnobby: #d90429;
 
 	appearance: none;
@@ -145,7 +141,7 @@
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 	position: absolute;
-	top: 0px;
+	top: 0;
 	left: 0;
 	z-index: 10;
 	cursor: pointer;
@@ -169,37 +165,44 @@
 	background-color: var(--knobby);
 	cursor: pointer;
 	position: relative;
-	margin: -2px 0 0 0;
 	box-sizing: border-box;
-	z-index: 5;
+}
+
+.progressBar::-webkit-slider-thumb::before {
+	background-color: black;
 }
 
 /* knobby while dragging - chrome and safari */
 .progressBar:active::-webkit-slider-thumb {
-	transform: scale(1.2);
 	width: 15px;
 	height: 15px;
+	margin: -2px 0 0 0;
 	background: var(--selectedKnobby);
+	z-index: 2;
 }
 
 /* knobby - firefox */
 .progressBar::-moz-range-thumb {
-	height: 15px;
-	width: 15px;
+	height: 0px;
+	width: 0px;
 	border-radius: 50%;
 	border: transparent;
 	background-color: var(--knobby);
 	cursor: pointer;
 	position: relative;
-	z-index: 3;
 	box-sizing: border-box;
 }
 
 /* knobby while dragging - firefox */
 .progressBar:active::-moz-range-thumb {
-	transform: scale(1.2);
+	width: 15px;
+	height: 15px;
+	margin: -2px 0 0 0;
 	background: var(--selectedKnobby);
+	z-index: 2;
 }
+
+/* progress-bar end  */
 
 .audio-container .controller-container {
 	display: flex;
@@ -221,9 +224,7 @@
 	padding: 0 20px 0 24%;
 	background-color: #f1fffa;
 	box-shadow: 0px -2px 3px rgb(0 0 0 / 50%);
-
 	border-radius: 2rem 2rem 1rem 1rem;
-	/* display: none; */
 	opacity: 0;
 	transform: translateY(0);
 	transition: all 0.5s linear;

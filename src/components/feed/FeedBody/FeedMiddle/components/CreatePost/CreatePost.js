@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
-import "./CreatePost.css"
+import "./CreatePost.css";
 
 const CreatePost = () => {
    // for privacy selection
@@ -133,7 +133,7 @@ const CreatePost = () => {
 							title="attach file"
 							className="title-tip title-tip-up"
 						>
-							<i class="bi bi-file-earmark-medical"></i>
+							<i className="bi bi-file-earmark-medical"></i>
 						</label>
 
 						<label
@@ -141,7 +141,7 @@ const CreatePost = () => {
 							title="create poll"
 							className="title-tip title-tip-up"
 						>
-							<i class="bi bi-plus-slash-minus"></i>
+							<i className="bi bi-plus-slash-minus"></i>
 						</label>
 					</div>
 

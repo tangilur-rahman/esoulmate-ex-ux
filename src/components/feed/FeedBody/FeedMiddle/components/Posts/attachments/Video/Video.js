@@ -6,7 +6,7 @@ const Video = ({ post }) => {
 			src={post}
 			controls="controls"
 			controlsList="nodownload"
-			autoPlay="true"
+			autoPlay={true}
 			muted
 			className="for-video"
 		/>

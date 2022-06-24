@@ -1,5 +1,5 @@
+import { useRef, useState } from "react";
 import "./Audio.css";
-import React, { useState, useRef, useEffect } from "react";
 
 const Audio = ({ post }) => {
 	// // state
@@ -12,11 +12,11 @@ const Audio = ({ post }) => {
 	const progressBar = useRef(); // reference our progress bar
 	const animationRef = useRef(); // reference the animation
 
-	useEffect(() => {
+	const onLoadedMetadata = ()=>{
 		const seconds = Math.floor(audioPlayer.current.duration);
 		setDuration(seconds);
 		progressBar.current.max = seconds;
-	}, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
+	}
 
 	const calculateTime = (secs) => {
 		const minutes = Math.floor(secs / 60);
@@ -50,7 +50,7 @@ const Audio = ({ post }) => {
 	};
 
 	const changePlayerCurrentTime = () => {
-		progressBar.current.style.setProperty(
+	   progressBar.current.style.setProperty(
 			"--seek-before-width",
 			`${(progressBar.current.value / duration) * 100}%`
 		);
@@ -82,7 +82,7 @@ const Audio = ({ post }) => {
 				<div className="audioPlayer">
 					<div className="controller-container">
 						{/* audio tag  */}
-						<audio ref={audioPlayer} src={post} preload="metadata"></audio>
+						<audio ref={audioPlayer} src={post} preload="metadata" onLoadedMetadata={onLoadedMetadata}></audio>
 
 						{/* backward button  */}
 						<button

@@ -1,13 +1,13 @@
-import "./Post.css";
 import posts from "./../../../../../../dummy-data/posts.json";
+import "./Post.css";
 
 // own components
-import Image from "./attachments/Image/Image";
-import Video from "./attachments/Video/Video";
 import Audio from "./attachments/Audio/Audio";
+import Image from "./attachments/Image/Image";
 import Pdf from "./attachments/Pdf/Pdf";
-import Header from "./Header/Header";
+import Video from "./attachments/Video/Video";
 import Description from "./Description/Description";
+import Header from "./Header/Header";
 
 const Posts = () => {
 	return (
@@ -16,32 +16,30 @@ const Posts = () => {
 
 			{posts &&
 				posts.map((value) => {
-					const { profile, name, time, privacy, description, post, type } =
+					const { profile, name, time, privacy, description, post, type, id } =
 						value;
 					return (
-						<>
+						<div className="post-container" key={id}>
 							{/* post section start  */}
-							<div className="post-container">
-								<Header
-									profile={profile}
-									name={name}
-									time={time}
-									privacy={privacy}
-								/>
+							<Header
+								profile={profile}
+								name={name}
+								time={time}
+								privacy={privacy}
+							/>
 
-								<Description description={description} />
+							<Description description={description} />
 
-								{/* attachment section start  */}
-								<div className="attachment-container">
-									{(type === "image" && <Image post={post} />) ||
-										(type === "video" && <Video post={post} />) ||
-										(type === "audio" && <Audio post={post} />) ||
-										(type === "document" && <Pdf post={post} />)}
-								</div>
-								{/* attachment section end  */}
+							{/* attachment section start  */}
+							<div className="attachment-container">
+								{(type === "image" && <Image post={post} />) ||
+									(type === "video" && <Video post={post} />) ||
+									(type === "audio" && <Audio post={post} />) ||
+									(type === "document" && <Pdf post={post} />)}
 							</div>
+							{/* attachment section end  */}
 							{/* post section end  */}
-						</>
+						</div>
 					);
 				})}
 
